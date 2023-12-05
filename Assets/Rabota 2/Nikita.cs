@@ -3,9 +3,12 @@ using UnityEngine;
 
 public class Nikita : SampleScript
 {
-    public float rotationSpeed = 10.0f;
-    public Vector3 targetRotation = new Vector3(90.0f, 90.0f, 90.0f);
+    [SerializeField]
+    public float rotationSpeed = 1f;
+    [SerializeField]
+    public Vector3 targetRotation;
 
+    [ContextMenu("start")]
     public override void Use()
     {
         StartCoroutine(RotateObject());
@@ -19,7 +22,7 @@ public class Nikita : SampleScript
 
         while (t < 1)
         {
-            t += Time.deltaTime / (rotationSpeed * 9); // 9 секунд для 90 градусов при данной скорости
+            t += Time.deltaTime / (rotationSpeed * 9);
             transform.rotation = Quaternion.Lerp(startRotation, targetRotationQuaternion, t);
             yield return null;
         }
