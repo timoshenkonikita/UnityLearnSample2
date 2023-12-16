@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - InteractivePlane
+<<<<<<< HEAD
+=======
+  - InteractiveBox
+>>>>>>> Den
   layers:
   - Default
   - TransparentFX
