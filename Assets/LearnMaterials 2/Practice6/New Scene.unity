@@ -200,8 +200,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 186980938}
-  m_LocalRotation: {x: 0.40627086, y: 0.57882035, z: -0.40413043, w: 0.5801635}
-  m_LocalPosition: {x: -3.3679848, y: 14.247463, z: -0.6153032}
+  m_LocalRotation: {x: -0.4734579, y: -0.0010535717, z: -0.0013506524, w: -0.8808148}
+  m_LocalPosition: {x: 0.017482087, y: 20.858837, z: -21.55005}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -219,8 +219,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96d36df700e09bd438a2cfb0d4b938b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 5390941731518708094, guid: 8aed990d132c36e4abb667251953a224, type: 3}
+  prefab: {fileID: 2446249763311965264, guid: b8595119bd7ebd448b64ba99e3c14a05, type: 3}
   _interactiveBox: {fileID: 0}
+  obstacleItem: {fileID: 918385363915461357, guid: ea9954544a46b8549acb2de033f47506, type: 3}
 --- !u!1 &680518248
 GameObject:
   m_ObjectHideFlags: 0
@@ -308,7 +309,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 680518248}
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: -17.24, y: 31.93, z: 29.86}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -327,7 +328,7 @@ GameObject:
   - component: {fileID: 1192184609}
   - component: {fileID: 1192184608}
   m_Layer: 0
-  m_Name: platform
+  m_Name: Plane
   m_TagString: InteractivePlane
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

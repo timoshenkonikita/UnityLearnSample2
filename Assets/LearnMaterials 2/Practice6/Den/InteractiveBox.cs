@@ -26,7 +26,6 @@ public class InteractiveBox : MonoBehaviour
         //Debug.DrawRay(myTransform.position, ray, Color.red, 0.3f);
     }
 
-    [ContextMenu("test")]
     public void AddNext(InteractiveBox box)
     {
         _next = box;
@@ -42,7 +41,13 @@ public class InteractiveBox : MonoBehaviour
         {
             if (Physics.Linecast(myTransform.position, target.position, out RaycastHit hit, rayMask))
             {
-                Debug.DrawLine(myTransform.position, hit.point, Color.red, 0.3f);
+                Debug.DrawLine(myTransform.position, hit.point, Color.red, 0.1f);
+                if (hit.collider.gameObject.CompareTag("ObstacleItem"))
+                {
+                    Debug.Log("ObstacleItem");
+                    ObstacleItem obstacle = hit.collider.GetComponent<ObstacleItem>();
+                    obstacle.Damage();
+                }
                 yield return null;
             }
         }

@@ -10,6 +10,8 @@ public class InteractiveRaycast : MonoBehaviour
     private Camera cam;
     [SerializeField]
     private InteractiveBox _interactiveBox;
+    [SerializeField]
+    private ObstacleItem obstacleItem;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,24 +27,24 @@ public class InteractiveRaycast : MonoBehaviour
 
             if (Physics.Raycast(ray.origin, ray.direction, out RaycastHit hit))
             {
-                Debug.Log(hit.collider.gameObject.name);
                 if (hit.collider.gameObject.CompareTag("InteractivePlane") is true)
                 {
                     Instantiate(prefab, hit.point, prefab.transform.rotation);
                 }
                 if(hit.collider.gameObject.CompareTag("InteractiveBox") is true)
                 {
-                    Debug.Log("1234");
                     InteractiveBox clicked = hit.collider.GetComponent<InteractiveBox>();
-                    if (_interactiveBox is null)
+                    if (!ReferenceEquals(clicked, _interactiveBox))
                     {
-                        _interactiveBox = clicked;
+                        if (_interactiveBox is null)
+                        {
+                            _interactiveBox = clicked;
+                        }
+                        else
+                        {
+                            _interactiveBox.AddNext(clicked);
+                        }
                     }
-                    else
-                    {
-                        _interactiveBox.AddNext(clicked);
-                    }
-
                 }
             }
         }
@@ -55,6 +57,18 @@ public class InteractiveRaycast : MonoBehaviour
                 if (hit.collider.gameObject.CompareTag("InteractiveBox") is true)
                 {
                     Destroy(hit.collider.transform.parent.gameObject);
+                }
+            }
+        }
+        if (Input.GetMouseButtonDown(2))
+        {
+            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+
+            if (Physics.Raycast(ray.origin, ray.direction, out RaycastHit hit))
+            {
+                if (hit.collider.gameObject.CompareTag("InteractivePlane") is true)
+                {
+                    Instantiate(obstacleItem, hit.point, prefab.transform.rotation);
                 }
             }
         }

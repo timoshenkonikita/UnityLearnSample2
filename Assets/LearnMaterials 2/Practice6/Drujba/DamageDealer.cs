@@ -12,7 +12,7 @@ public class DamageDealer : MonoBehaviour
 
         if (obstacle != null)
         {
-            obstacle.GetDamage(damageAmount); // Вызываем метод GetDamage у препятствия
+            obstacle.GetDamageCoroutine(damageAmount); // Вызываем метод GetDamage у препятствия
         }
     }
 }

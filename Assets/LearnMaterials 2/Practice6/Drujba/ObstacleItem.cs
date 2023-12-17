@@ -17,15 +17,23 @@ public class ObstacleItem : MonoBehaviour
         UpdateColor();
     }
 
-
-    [ContextMenu("Damage")]
     public void Damage()
     {
-        GetDamage(0.1f);
+        StartCoroutine(GetDamageCoroutine(0.001f));
     }
 
+    private void UpdateColor()
+    {
+        Color targetColor = Color.Lerp(Color.red, Color.white, currentValue); // Используем плавный переход цвета
 
-    public void GetDamage(float value)
+        if (obstacleRenderer != null)
+        {
+            obstacleRenderer.material.color = targetColor;
+        }
+    }
+    
+   
+    public IEnumerator GetDamageCoroutine(float value)
     {
         currentValue -= value;
         currentValue = Mathf.Clamp01(currentValue); // Убедимся, что currentValue находится в диапазоне от 0 до 1
@@ -36,24 +44,10 @@ public class ObstacleItem : MonoBehaviour
         {
             isDestroyed = true;
             onDestroyObstacle.Invoke();
-            Destroy(gameObject);
+            Destroy(transform.parent.gameObject);
         }
+        yield return null;
     }
-    private void UpdateColor()
-    {
-        Color targetColor = Color.Lerp(Color.red, Color.white, currentValue); // Используем плавный переход цвета
-
-        if (obstacleRenderer != null)
-        {
-            obstacleRenderer.material.color = targetColor;
-        }
-    }
-
-    // Update is called once per frame
-    //void Update()
-    //{
-        
-    //}
 }
 
 

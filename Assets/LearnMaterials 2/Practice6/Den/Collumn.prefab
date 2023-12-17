@@ -42,6 +42,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cube
       objectReference: {fileID: 0}
+    - target: {fileID: 7454194947049291454, guid: 4a11bda1366ea8948a53b4d50602e1d3, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
     - target: {fileID: 7454194947049291455, guid: 4a11bda1366ea8948a53b4d50602e1d3, type: 3}
       propertyPath: m_RootOrder
       value: 0
